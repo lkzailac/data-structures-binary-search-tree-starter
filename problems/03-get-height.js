@@ -7,10 +7,19 @@ function getHeight(root) {
   if(!root) return -1;
 
   let leftHeight = getHeight(root.left);
+  console.log("lh", leftHeight)
   let rightHeight = getHeight(root.right);
+  console.log("rh", rightHeight);
+
   return Math.max(leftHeight, rightHeight) +1;
 }
 
+//
+//d
+//b
+//a
+//--------
+//Stack
 
 let a = new TreeNode(10);
 let b = new TreeNode(9);
