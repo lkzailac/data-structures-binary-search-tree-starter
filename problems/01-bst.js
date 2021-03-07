@@ -14,27 +14,77 @@ class BST {
     }
 
     // Insert a node into the binary search tree
-    insert(val, currentNode=this.root) {
-        if(!this.root) {
-            this.root = new TreeNode(val);
-        }
-        if(currentNode.val < val) {
-            currentNode.left = insert(val, currentNode)
+    // insert(val) {
+    //     if(!this.root) {
+    //         return this.root = new TreeNode(val);
+    //     }
+    //     //inserted is false
+    //     //while false
+    //     //check
+    //     let currentNode = this.root;
+
+    //     while(currentNode) {
+    //         if(val < currentNode.val) {
+    //             if(!currentNode.left) {
+    //                 //set the value
+    //                 currentNode.left = new TreeNode(val);
+    //                 return;
+    //             }
+    //             currentNode = currentNode.left;
+    //         } else {
+    //             if(!currentNode.right) {
+    //                 currentNode.right = new TreeNode(val);
+    //                 return;
+    //             }
+    //             currentNode = currentNode.right;
+    //         }
+    //     }
+    // }
+
+    insert(val, currentNode = this.root) {
+        if(!this.root) return this.root = new TreeNode(val);
+
+        if(val < currentNode.val) {
+            if(currentNode.left) {
+                this.insert(val, currentNode.left);
+            } else {
+                return currentNode.left = new TreeNode(val);
+            }
         } else {
-            currentNode.right = insert(val, currentNode)
+            if(currentNode.right) {
+                this.insert(val, currentNode.right);
+            } else {
+                return currentNode.right = new TreeNode(val);
+            }
         }
     }
 
     // Perform a recursive search through the binary search tree
     searchRecur(val, currentNode=this.root) {
-        // Your code here
+        if(!currentNode) return false;
+
+        if(val < currentNode.val) {
+            return this.searchRecur(val, currentNode.left);
+        } else if (val > currentNode.val) {
+            return this.searchRecur(val, currentNode.right);
+        } else {
+            //it's equal
+            return true;
+        }
     }
 
     // Perform an iterative search through the binary search tree
     searchIter(val) {
-        // Your code here
+        let q =
     }
 }
+
+let tree = new BST();
+tree.insert(10);
+tree.insert(5);
+tree.insert(1)
+
+console.log(tree)
 
 module.exports = {
     TreeNode,
