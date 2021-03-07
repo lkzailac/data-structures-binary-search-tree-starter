@@ -95,7 +95,7 @@ tree.insert(10);
 tree.insert(5);
 tree.insert(1)
 
-console.log(tree)
+//console.log(tree)
 
 module.exports = {
     TreeNode,
